@@ -26,5 +26,6 @@ public class SpringJpaApplication implements CommandLineRunner {
 //		logger.info("Course 10001 - {}", course);
 //		repository.deleteById(10001L);
 //		repository.save(new Course("Microservices in 100 steps"));
+		repository.playWithEntityManager_2();
 	}
 }
