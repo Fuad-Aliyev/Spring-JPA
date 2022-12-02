@@ -1,7 +1,7 @@
 package com.tutorial.jpa;
 
-import com.tutorial.jpa.entity.Course;
 import com.tutorial.jpa.repository.CourseRepository;
+import com.tutorial.jpa.repository.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +11,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class SpringJpaApplication implements CommandLineRunner {
+	//In jpa we use EntityManager and Persistent Context.
+	// But in hibernate use Session and Session Factory
+
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	private CourseRepository repository;
+	@Autowired
+	private StudentRepository studentRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringJpaApplication.class, args);
@@ -22,10 +27,6 @@ public class SpringJpaApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-//		Course course = repository.findById(10001L);
-//		logger.info("Course 10001 - {}", course);
-//		repository.deleteById(10001L);
-//		repository.save(new Course("Microservices in 100 steps"));
-		repository.playWithEntityManager_2();
+		studentRepository.saveStudentWithPassport();
 	}
 }
